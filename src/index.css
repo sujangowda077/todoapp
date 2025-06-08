@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-white font-body;
+    background-image: radial-gradient(circle at 10% 20%, rgba(109, 40, 217, 0.2) 0%, rgba(29, 78, 216, 0.1) 50%, transparent 100%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-title;
+  }
+}
+
+@layer components {
+  .gaming-card {
+    @apply bg-slate-800/90 backdrop-blur-sm border border-primary-500/30 rounded-lg shadow-lg shadow-primary-500/20 p-6 transition-all duration-300;
+  }
+  
+  .gaming-card:hover {
+    @apply shadow-xl shadow-primary-500/30 border-primary-400/50 transform -translate-y-1;
+  }
+  
+  .btn {
+    @apply px-6 py-3 rounded-md font-bold transition-all duration-300 transform;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 hover:bg-primary-500 text-white shadow-md shadow-primary-700/50 hover:shadow-lg hover:shadow-primary-600/50;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-600 hover:bg-secondary-500 text-white shadow-md shadow-secondary-700/50 hover:shadow-lg hover:shadow-secondary-600/50;
+  }
+  
+  .btn-accent {
+    @apply btn bg-accent-600 hover:bg-accent-500 text-white shadow-md shadow-accent-700/50 hover:shadow-lg hover:shadow-accent-600/50;
+  }
+  
+  .input-gaming {
+    @apply bg-slate-700/80 border-2 border-primary-500/30 rounded-md px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300;
+  }
+  
+  .neon-border {
+    @apply relative;
+  }
+  
+  .neon-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-lg -z-10 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 opacity-70 blur-sm transition-all duration-300;
+  }
+  
+  .neon-border:hover::before {
+    @apply opacity-100 blur-md;
+  }
+  
+  .neon-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400;
+  }
+  
+  .gaming-section {
+    @apply relative p-6 rounded-xl overflow-hidden;
+  }
+  
+  .gaming-section::before {
+    content: '';
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-slate-900/90 to-slate-800/90 border border-slate-700/50 rounded-xl;
+  }
+  
+  .result-item {
+    @apply bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4 hover:bg-slate-700/80 transition-all duration-300;
+  }
+
+  .pulse-dot {
+    @apply h-3 w-3 rounded-full bg-accent-500;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.5);
+    }
+  }
+}
